@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/usr/bin/mysqld_safe --user=root --init-file=/root/docker/scripts/fix_access.sql && \ 
+/usr/bin/mysqld_safe --user=root
