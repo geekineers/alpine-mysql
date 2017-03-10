@@ -4,7 +4,9 @@ MAINTAINER geekineers <developers@8layertech.com>
 
 RUN apk add --no-cache --update mysql mysql-client
 
-RUN /usr/bin/mysql_install_db --defaults-file=/etc/mysql/my.cnf
+#RUN chown -R mysql:mysql /var/lib/mysql
+
+#RUN /usr/bin/mysql_install_db --defaults-file=/etc/mysql/my.cnf
 
 COPY mysql_startup /root/docker/scripts/
 COPY fix_access.sql /root/docker/scripts/
