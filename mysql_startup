@@ -1,7 +1,9 @@
 #!/bin/sh
 
-chown -R mysql:mysql /var/lib/mysql
-/usr/bin/mysql_install_db --defaults-file=/etc/mysql/my.cnf
+if [ ! -d /var/lib/mysql/mysql ]; then
+    chown -R mysql:mysql /var/lib/mysql
+    /usr/bin/mysql_install_db --defaults-file=/etc/mysql/my.cnf
+fi
 
 /usr/bin/mysqld_safe --user=root --init-file=/root/docker/scripts/fix_access.sql && \ 
 /usr/bin/mysqld_safe --user=root
